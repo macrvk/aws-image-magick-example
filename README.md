@@ -22,6 +22,8 @@ This repository builds standalone ImageMagick binaries for Amazon Linux 2 that c
    docker build \
      --platform linux/amd64 \
      -t amazonlinuxmagick .
+   
+   docker build --platform linux/amd64 -t amazonlinuxmagick .
    ```
 
 3. Extract the docker image's ImageMagick binaries:
@@ -33,6 +35,24 @@ This repository builds standalone ImageMagick binaries for Amazon Linux 2 that c
      -v $(pwd)/binaries:/root/output \
      amazonlinuxmagick \
      mv /root/result /root/output
+   
+   docker run --rm -it --platform linux/amd64 -v C:\Users\macrv\WebstormProjects\aws-image-magick-example/binaries:/root/output amazonlinuxmagick mv /root/result /root/output
    ```
 
 4. `./binaries/result` on your host machine now contains a portable set of ImageMagick binaries!
+5. `cd ./binaries/result`
+6. `zip -ry ../resultado.zip *`
+7. `sudo unzip resultado.zip -d /`
+
+## Varios
+
+
+**Error 'no such file or directory':** https://unix.stackexchange.com/questions/433444/cant-run-script-file-in-docker-no-such-file-or-directory
+
+**aws-lambda-base-images** https://github.com/aws/aws-lambda-base-images
+
+**Amazon linux ECR** https://gallery.ecr.aws/amazonlinux/amazonlinux
+
+**imagemagick-aws-lambda-2** https://github.com/serverlesspub/imagemagick-aws-lambda-2
+
+**Docker Lambda Lambci** https://github.com/lambci/docker-lambda
